@@ -1,0 +1,19 @@
+{
+    "name": "yoozoo/protoapiphp",
+    "description": "PHP SDK for protoapi",
+    "type": "library",
+    "authors": [
+        {
+            "name": "chenfang",
+            "email": "crossfire1103@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yoozoo\\Protoapi\\": "src/"
+        }
+    }
+}
