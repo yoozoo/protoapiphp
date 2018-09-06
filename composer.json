@@ -2,6 +2,9 @@
     "name": "yoozoo/protoapi",
     "description": "PHP SDK for protoapi",
     "type": "library",
+    "keywords": ["protoapi"],
+    "homepage": "https://github.com/yoozoo/protoapiphp",
+    "license": "MIT",
     "authors": [
         {
             "name": "chenfang",
