@@ -1,5 +1,5 @@
 {
-    "name": "yoozoo/protoapiphp",
+    "name": "yoozoo/protoapi",
     "description": "PHP SDK for protoapi",
     "type": "library",
     "authors": [
