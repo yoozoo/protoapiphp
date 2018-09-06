@@ -15,5 +15,13 @@
         "psr-4": {
             "Yoozoo\\Protoapi\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Yoozoo\\Protoapi\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.3"
     }
 }

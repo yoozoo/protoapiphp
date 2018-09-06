@@ -5,6 +5,7 @@
  */
 
 namespace Yoozoo\Protoapi;
+use Exception;
 
 class InvalidMessageException extends Exception
 {}

@@ -6,13 +6,14 @@
 
 namespace Yoozoo\Protoapi;
 
+use Exception;
 use GuzzleHttp\Client;
 
 interface Message
 {
     public function validate();
-    function init(array $arr);
-    function to_array();
+    public function init(array $arr);
+    public function to_array();
 }
 
 class httpClient extends Client
@@ -34,9 +35,10 @@ class httpClient extends Client
         }
 
         $data = [
-            'json' => $req->to_array(),
+            'json' => (object)$req->to_array(),
+            'http_errors' => false,
         ];
-        $response = $this->httpClient->request($method, $uri, $data);
+        $response = $this->request($method, $uri, $data);
         $rawContent = $response->getBody()->getContents();
         $content = json_decode($rawContent, true);
 
@@ -44,23 +46,23 @@ class httpClient extends Client
         switch ($statusCode) {
             case 200:
                 // happy path
-                if (isset($content["response"])) {
-                    return $handler($content["response"], "", "");
+                if (isset($content)) {
+                    return $handler($content, "", "");
                 } else {
                     throw new Exception("Cannot find response body: " . $rawContent);
                 }
                 break;
             case 400:
                 // biz error
-                if (isset($content["error"])) {
-                    return $handler("", $content["error"], "");
+                if (isset($content)) {
+                    return $handler("", $content, "");
                 }
                 throw new Exception("Cannot find Biz Error body: " . $rawContent);
                 break;
             case 420:
                 // common error
-                if (isset($content["error"])) {
-                    return $handler("", "", $content["error"]);
+                if (isset($content)) {
+                    return $handler("", "", $content);
                 }
                 throw new Exception("Cannot find Common Error body: " . $rawContent);
                 break;
