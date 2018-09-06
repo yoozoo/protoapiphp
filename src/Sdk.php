@@ -4,7 +4,7 @@
  * @author  chenfang<crossfire1103@gmail.com>
  */
 
-namespace Yoozoo\Protoapi;
+namespace Yoozoo\ProtoApi;
 
 use Exception;
 use GuzzleHttp\Client;

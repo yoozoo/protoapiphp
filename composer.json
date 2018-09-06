@@ -16,12 +16,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Yoozoo\\Protoapi\\": "src/"
+            "Yoozoo\\ProtoApi\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Yoozoo\\Protoapi\\Tests\\": "tests/"
+            "Yoozoo\\ProtoApi\\Tests\\": "tests/"
         }
     },
     "require-dev": {

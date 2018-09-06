@@ -4,14 +4,13 @@
  * @author  chenfang<crossfire1103@gmail.com>
  */
 
-namespace Yoozoo\Protoapi;
+namespace Yoozoo\ProtoApi;
 use Exception;
 
-class InvalidMessageException extends Exception
-{}
+class InvalidMessageException extends Exception {}
 
-class CommonErrorException extends Exception
-{}
+class CommonErrorException extends Exception {}
 
-class InternalServerErrorException extends Exception
-{}
+class InternalServerErrorException extends Exception {}
+
+class BizErrorException extends Exception {}

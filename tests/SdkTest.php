@@ -2,11 +2,11 @@
 /**
  * @author chenfang<crossfire1103@gmail.com>
  */
-namespace Yoozoo\Protoapi\Tests;
+namespace Yoozoo\ProtoApi\Tests;
 
-use Yoozoo\Protoapi;
+use Yoozoo\ProtoApi;
 
-class Request implements Protoapi\Message
+class Request implements ProtoApi\Message
 {
     public function validate() {}
     public function init(array $arr) {}
@@ -15,7 +15,7 @@ class Request implements Protoapi\Message
     }
 }
 
-class Response implements Protoapi\Message
+class Response implements ProtoApi\Message
 {
     public function validate() {}
     public function init(array $arr) {}
@@ -27,13 +27,13 @@ class Response implements Protoapi\Message
 class ClientTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var Yoozoo\Protoapi\httpClient;
+     * @var Yoozoo\ProtoApi\httpClient;
      */
     protected $client;
 
     public function setUp()
     {
-        $this->client = new Protoapi\httpClient(
+        $this->client = new ProtoApi\httpClient(
             [
                 'base_uri' => "testurl",
                 'timeout' => 30,
