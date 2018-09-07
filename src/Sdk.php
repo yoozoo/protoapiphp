@@ -29,9 +29,9 @@ class httpClient extends Client
      */
     public function callApi(Message $req, $method, $uri, $handler)
     {
-        // check handle, php before 5.4 do not support Type Hinting of callable
+        // check handler, php before 5.4 doesn't support Type Hinting of callable
         if (!is_callable($handler)) {
-            throw new Exception("Can not find response handle.");
+            throw new GeneralException("Can not find response handler.");
         }
 
         $data = [
@@ -49,7 +49,7 @@ class httpClient extends Client
                 if (isset($content)) {
                     return $handler($content, "", "");
                 } else {
-                    throw new Exception("Cannot find response body: " . $rawContent);
+                    throw new GeneralException("Cannot find response body: " . $rawContent);
                 }
                 break;
             case 400:
@@ -57,14 +57,14 @@ class httpClient extends Client
                 if (isset($content)) {
                     return $handler("", $content, "");
                 }
-                throw new Exception("Cannot find Biz Error body: " . $rawContent);
+                throw new GeneralException("Cannot find Biz Error body: " . $rawContent);
                 break;
             case 420:
                 // common error
                 if (isset($content)) {
                     return $handler("", "", $content);
                 }
-                throw new Exception("Cannot find Common Error body: " . $rawContent);
+                throw new GeneralException("Cannot find Common Error body: " . $rawContent);
                 break;
             case 500:
                 // internal error

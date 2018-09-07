@@ -14,3 +14,5 @@ class CommonErrorException extends Exception {}
 class InternalServerErrorException extends Exception {}
 
 class BizErrorException extends Exception {}
+
+class GeneralException extends Exception {}
