@@ -9,7 +9,7 @@ namespace Yoozoo\ProtoApi;
 use Exception;
 use GuzzleHttp\Client;
 
-class httpClient extends Client
+class HttpClient extends Client
 {
     /**
      * call api, handle error, return response
