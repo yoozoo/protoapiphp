@@ -9,13 +9,6 @@ namespace Yoozoo\ProtoApi;
 use Exception;
 use GuzzleHttp\Client;
 
-interface Message
-{
-    public function validate();
-    public function init(array $arr);
-    public function to_array();
-}
-
 class httpClient extends Client
 {
     /**
@@ -35,12 +28,16 @@ class httpClient extends Client
         }
 
         $data = [
-            'json' => (object)$req->to_array(),
+            'json' => (object) $req->to_array(),
             'http_errors' => false,
         ];
         $response = $this->request($method, $uri, $data);
         $rawContent = $response->getBody()->getContents();
+
         $content = json_decode($rawContent, true);
+        if (!$content) {
+            throw new ProtoApi\GeneralException("Response is not json data: " . $rawContent);
+        }
 
         $statusCode = $response->getStatusCode();
         switch ($statusCode) {
