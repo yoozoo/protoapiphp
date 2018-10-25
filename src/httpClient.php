@@ -36,7 +36,7 @@ class HttpClient extends Client
 
         $content = json_decode($rawContent, true);
         if (!$content) {
-            throw new ProtoApi\GeneralException("Response is not json data: " . $rawContent);
+            throw new GeneralException("Response is not json data: " . $rawContent);
         }
 
         $statusCode = $response->getStatusCode();
